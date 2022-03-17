@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="DLRGMitglieder.xsl" type="text/xsl"?>
+
+
+<Mitglieder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DLRGonlineGenerated.xsd">
+    <Mitglied id="1">
+        <Daten>
+            <Name>" Max Mustermann "</Name>
+            <Anschrift>
+                <Wohnort> Osthofen </Wohnort>
+                <Postleitzahl> 67574 </Postleitzahl>
+                <Straße> Schubertstraße </Straße>
+                <Hausnummer> 1 </Hausnummer>
+            </Anschrift>
+            <Geburtstag> 1.2.2005</Geburtstag>
+            <Email> max@mustermann.com </Email>
+            <Beitritsdatum> 7.3.2010 </Beitritsdatum>
+        </Daten>
+        <Teilnehmer>
+            <Abzeichen>
+                <Schwimmen>
+                    <Bronze> 2.4.2011</Bronze>
+                    <Silber> 10.12.2012 </Silber>
+                </Schwimmen>
+            </Abzeichen>
+            <Kontaktperson>
+                <Name> Mia Mustermann </Name>
+                <Telefonnummer> 0151010110 </Telefonnummer>
+            </Kontaktperson>
+        </Teilnehmer>
+    </Mitglied>
+    <Mitglied id="2">
+        <Daten>
+            <Name> Tim Miess </Name>
+            <Anschrift>
+                <Wohnort> Osthofen </Wohnort>
+                <Postleitzahl> 67574 </Postleitzahl>
+                <Straße> Lindenstraße </Straße>
+                <Hausnummer> 5 </Hausnummer>
+            </Anschrift>
+            <Geburtstag> 7.12.2002</Geburtstag>
+            <Email> tim@miess.com </Email>
+            <Beitritsdatum> 4.2.2011 </Beitritsdatum>
+        </Daten>
+        <Teilnehmer>
+            <Abzeichen>
+                <Schwimmen>
+                    <Bronze> 7.12.2012</Bronze>
+                    <Silber> 2.5.2013 </Silber>
+                    <Gold> 13.2.2014 </Gold>
+                </Schwimmen>
+            </Abzeichen>
+        </Teilnehmer>
+    </Mitglied>
+    <Mitglied id="3">
+        <Daten>
+            <Name> Reiner Zufall </Name>
+            <Anschrift>
+                <Wohnort> Osthofen </Wohnort>
+                <Postleitzahl> 67574 </Postleitzahl>
+                <Straße> Grabenstraße </Straße>
+                <Hausnummer> 7 </Hausnummer>
+            </Anschrift>
+            <Geburtstag> 2.11.1980</Geburtstag>
+            <Email> Reiner@Zufall.com </Email>
+            <Beitritsdatum> 3.9.2000 </Beitritsdatum>
+        </Daten>
+        <Lehrer>
+                <Abzeichen>
+                    <Rettungsschwimmerbronze> 2.7.2005</Rettungsschwimmerbronze>
+                    <Rettungsschwimmersilber> 3.6.2007 </Rettungsschwimmersilber>
+                </Abzeichen>
+                <Lehrscheine>
+                    <Assistent>
+                        <Schwimmassistent> 2.4.2008</Schwimmassistent>
+                        <Rettungsschwimmassistent> 3.7.2008</Rettungsschwimmassistent>
+                    </Assistent>
+                    <Ausbilder>
+                        <Schwimmausbilder> 26.3.2009 </Schwimmausbilder>
+                        <Rettungsschwimmausbilder> 17.6.2010 </Rettungsschwimmausbilder>
+                    </Ausbilder>
+                </Lehrscheine>
+        </Lehrer>
+    </Mitglied>
+</Mitglieder>
