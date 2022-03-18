@@ -1,146 +1,118 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="Mitglieder" type="MitgliederType"/>
-  <xs:complexType name="AnschriftType">
-    <xs:sequence>
-      <xs:element type="xs:string" name="Wohnort"/>
-      <xs:element type="xs:string" name="Postleitzahl"/>
-      <xs:element name="Straße">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value=" Schubertstraße "/>
-            <xs:enumeration value=" Lindenstraße "/>
-            <xs:enumeration value=" Grabenstraße "/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="Hausnummer">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value=" 1 "/>
-            <xs:enumeration value=" 5 "/>
-            <xs:enumeration value=" 7 "/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="DatenType">
-    <xs:sequence>
-      <xs:element name="Name">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="&quot; Max Mustermann &quot;"/>
-            <xs:enumeration value=" Tim Miess "/>
-            <xs:enumeration value=" Reiner Zufall "/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element type="AnschriftType" name="Anschrift"/>
-      <xs:element name="Geburtstag">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value=" 1.2.2005"/>
-            <xs:enumeration value=" 7.12.2002"/>
-            <xs:enumeration value=" 2.11.1980"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="Email">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value=" max@mustermann.com "/>
-            <xs:enumeration value=" tim@miess.com "/>
-            <xs:enumeration value=" Reiner@Zufall.com "/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="Beitritsdatum">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value=" 7.3.2010 "/>
-            <xs:enumeration value=" 4.2.2011 "/>
-            <xs:enumeration value=" 3.9.2000 "/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="SchwimmenType">
-    <xs:sequence>
-      <xs:element name="Bronze">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value=" 2.4.2011"/>
-            <xs:enumeration value=" 7.12.2012"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="Silber">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value=" 10.12.2012 "/>
-            <xs:enumeration value=" 2.5.2013 "/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element type="xs:string" name="Gold" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="AbzeichenType">
-    <xs:sequence>
-      <xs:element type="SchwimmenType" name="Schwimmen" minOccurs="0"/>
-      <xs:element type="xs:string" name="Rettungsschwimmerbronze" minOccurs="0"/>
-      <xs:element type="xs:string" name="Rettungsschwimmersilber" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="KontaktpersonType">
-    <xs:sequence>
-      <xs:element type="xs:string" name="Name"/>
-      <xs:element type="xs:string" name="Telefonnummer"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="TeilnehmerType">
-    <xs:sequence>
-      <xs:element type="AbzeichenType" name="Abzeichen"/>
-      <xs:element type="KontaktpersonType" name="Kontaktperson" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="MitgliedType">
-    <xs:sequence>
-      <xs:element type="DatenType" name="Daten"/>
-      <xs:element type="TeilnehmerType" name="Teilnehmer" minOccurs="0"/>
-      <xs:element type="LehrerType" name="Lehrer" minOccurs="0"/>
-    </xs:sequence>
-    <xs:attribute type="xs:string" name="id" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="AssistentType">
-    <xs:sequence>
-      <xs:element type="xs:string" name="Schwimmassistent"/>
-      <xs:element type="xs:string" name="Rettungsschwimmassistent"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="AusbilderType">
-    <xs:sequence>
-      <xs:element type="xs:string" name="Schwimmausbilder"/>
-      <xs:element type="xs:string" name="Rettungsschwimmausbilder"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="LehrscheineType">
-    <xs:sequence>
-      <xs:element type="AssistentType" name="Assistent"/>
-      <xs:element type="AusbilderType" name="Ausbilder"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="LehrerType">
-    <xs:sequence>
-      <xs:element type="AbzeichenType" name="Abzeichen"/>
-      <xs:element type="LehrscheineType" name="Lehrscheine"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="MitgliederType">
-    <xs:sequence>
-      <xs:element type="MitgliedType" name="Mitglied" maxOccurs="unbounded" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Mitglieder">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Mitglied" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Daten">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="Name"/>
+                                        <xs:element name="Anschrift">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="xs:float" name="Postleitzahl"/>
+                                                    <xs:element type="xs:string" name="Wohnort"/>
+                                                    <xs:element type="xs:string" name="Straße"/>
+                                                    <xs:element type="xs:string" name="Hausnummer"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element type="xs:date" name="Geburtstag"/>
+                                        <xs:element type="xs:string" name="Email"/>
+                                        <xs:element type="xs:date" name="Beitritsdatum"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Teilnehmer" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Kontaktperson" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="xs:string" name="Name"/>
+                                                    <xs:element type="xs:float" name="Telefonnummer"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Abzeichen">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Schwimmen">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element type="xs:date" name="Bronze" minOccurs="0"/>
+                                                                <xs:element type="xs:date" name="Silber" minOccurs="0"/>
+                                                                <xs:element type="xs:date" name="Gold" minOccurs="0"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="Rettungsschwimmen" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element type="xs:date" name="Rettungsschwimmerbronze" minOccurs="0"/>
+                                                                <xs:element type="xs:date" name="Rettungsschwimmersilber" minOccurs="0"/>
+                                                                <xs:element type="xs:date" name="Rettungsschwimmergold" minOccurs="0"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Lehrer" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Abzeichen">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="xs:date" name="Rettungsschwimmerbronze" minOccurs="0"/>
+                                                    <xs:element type="xs:date" name="Rettungsschwimmersilber" minOccurs="0"/>
+                                                    <xs:element type="xs:date" name="Rettungsschwimmergold" minOccurs="0"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Lehrscheine">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Assistent">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element type="xs:date" name="Schwimmassistent" minOccurs="0"/>
+                                                                <xs:element type="xs:date" name="Rettungsschwimmassistent" minOccurs="0"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="Ausbilder">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element type="xs:date" name="Schwimmausbilder" minOccurs="0"/>
+                                                                <xs:element type="xs:date" name="Rettungsschwimmausbilder" minOccurs="0"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="Id" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:integer">
+                                    <xs:minInclusive value="1"/>
+                                    <xs:maxInclusive value="10"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute type="xs:string" name="Kategorie" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>
